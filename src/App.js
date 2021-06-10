@@ -1,25 +1,48 @@
-import logo from './logo.svg';
+import React, { useContext, useEffect, useMemo, useState } from "react";
+import { CustomerContext } from "./CustomerProvider";
+import Table from "./Table";
 import './App.css';
 
-function App() {
+
+export default function App() {
+  const { getCustomers } = useContext(CustomerContext)
+  const [customers, setCustomers] = useState({})
+
+  const columns = useMemo(
+    () => [
+      {
+        // Table with data
+        Header: "Reward Points by Customer",
+        // First group columns
+        columns: [
+          {
+            Header: "Name",
+            accessor: "name"
+          },
+          {
+            Header: "Amount",
+            accessor: "amount"
+          },
+          {
+            Header: "Points",
+            accessor: "points"
+          }
+        ]
+      }
+    ],
+    []
+  );
+
+  useEffect(() => {
+    getCustomers()
+    .then((res) => {
+			setCustomers(res)
+		})
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Table columns={columns} data={customers} />
     </div>
   );
 }
-
-export default App;
