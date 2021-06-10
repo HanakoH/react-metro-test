@@ -11,9 +11,9 @@ export default function App() {
   const columns = useMemo(
     () => [
       {
-        // Table with individual data
+        // Table with monthly data per customer
         Header: "Reward Points by Customer",
-        // First group columns
+
         columns: [
           {
             Header: "Name",
@@ -24,13 +24,28 @@ export default function App() {
             accessor: "amount"
           },
           {
-            Header: "Points",
+            Header: "Reward Points",
             accessor: "points"
           }
         ]
       }
     ],
     []
+  );
+
+  const totalsByColumns = useMemo(
+    () => [
+      // Table with total reward points by customer
+    {
+      Header:'Customer',
+      accessor: 'name'      
+    },    
+    {
+      Header:'Points',
+      accessor: 'points'
+    }
+  ],
+  []
   );
 
   useEffect(() => {
@@ -42,7 +57,8 @@ export default function App() {
 
   return (
     <div className="App">
-      <Table columns={columns} data={transactions} />
+      <Table columns={columns} data={customers} />
+      <Table columns={totalsByColumns} />
     </div>
   );
 }
