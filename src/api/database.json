@@ -2,57 +2,71 @@
     "transactions": [
         {
             "id": 1,
-            "name": "Patricia",
+            "customerId": 1,
             "amount": 120,
             "date": "06-09-2021"
         },
         {
             "id": 2,
-            "name": "Patricia",
+            "customerId": 1,
             "amount": 200,
             "date": "04-07-2021"
         },
         {
             "id": 3,
-            "name": "Abigail",
+            "customerId": 2,
             "amount": 70,
             "date": "05-21-2021"
         },
         {
             "id": 4,
-            "name": "Sam",
+            "customerId": 3,
             "amount": 144,
             "date": "04-20-2021"
         },
         {
             "id": 5,
-            "name": "Abigail",
+            "customerId": 2,
             "amount": 67,
             "date": "06-02-2021"
         },
         {
             "id": 6,
-            "name": "Sam",
+            "customerId": 3,
             "amount": 403,
             "date": "06-10-2021"
         },
         {
             "id": 7,
-            "name": "Abigail",
+            "customerId": 2,
             "amount": 190,
             "date": "04-14-2021"
         },
         {
             "id": 8,
-            "name": "Patricia",
+            "customerId": 1,
             "amount": 89,
             "date": "05-18-2021"
         },
         {
             "id": 9,
-            "name": "Sam",
+            "customerId": 3,
             "amount": 177,
             "date": "05-06-2021"
+        }
+    ], 
+    "customers":[
+        {
+            "id": 1,
+            "name": "Patricia"
+        },
+        {
+            "id": 2,
+            "name": "Abigail"
+        },
+        {
+            "id": 3,
+            "name": "Sam"
         }
     ]
 }

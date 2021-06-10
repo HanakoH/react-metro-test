@@ -57,7 +57,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <Table columns={columns} data={customers} />
+      <Table columns={columns} data={transactions} />
       <Table columns={totalsByColumns} />
     </div>
   );
