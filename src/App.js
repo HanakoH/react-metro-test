@@ -1,13 +1,12 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import { CustomerContext } from "./CustomerProvider";
+import { TransactionContext } from "./TransactionProvider";
 import Table from "./Table";
 import './App.css';
 
 
 export default function App() {
-
-  const { getCustomers } = useContext(CustomerContext)
-  const [customers, setCustomers] = useState({})
+  const { getTransactions } = useContext(TransactionContext)
+  const [transactions, setTransactions] = useState({})
 
   const columns = useMemo(
     () => [
@@ -50,15 +49,15 @@ export default function App() {
   );
 
   useEffect(() => {
-    getCustomers()
+    getTransactions()
     .then((res) => {
-			setCustomers(res)
+			setTransactions(res)
 		})
   }, [])
 
   return (
     <div className="App">
-      <Table columns={columns} data={customers} />
+      <Table columns={columns} data={transactions} />
       <Table columns={totalsByColumns} />
     </div>
   );
